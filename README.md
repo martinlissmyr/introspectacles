@@ -1,3 +1,6 @@
+![introspectacles](https://cloud.githubusercontent.com/assets/521390/19873687/be459af0-9fc0-11e6-8e95-57f199e8495c.jpg)
+
+
 ## What is it?
 
 Create personal top lists based on your Foursquare/Swarm data.
