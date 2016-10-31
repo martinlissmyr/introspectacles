@@ -8,7 +8,7 @@ Create personal top lists based on your Foursquare/Swarm data.
 ## Use
 
 1. Run `npm install`
-2. Rename `config.example.json` to `config.json` and add [your Foursquare token](https://developer.foursquare.com/overview/auth#token).
+2. Rename `config.example.json` to `config.json` and add your Foursquare token. Get a token by doing [an auth request](https://developer.foursquare.com/overview/auth#token) (make sure you [register an app](https://developer.foursquare.com/overview/auth#registration) before you try that).
 3. Run `npm run sync`. This will sync your checkins with local storage.
 4. Run `npm run stats`.
 5. Profit.
