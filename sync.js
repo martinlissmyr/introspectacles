@@ -4,6 +4,7 @@ var writeHeader = require("./src/write-header");
 var config = require("./config.json");
 var host = "api.foursquare.com";
 var authParams = "?oauth_token=" + config.token + "&v=20161014";
+var dataFolderName = "data";
 var allCheckins = [];
 var requests = 0;
 var itemsPerRequest = 250;
@@ -62,7 +63,7 @@ var fetchCheckins = function() {
       } else {
         console.log("Done fetching checkin data")
         applyVenueCategoryOverrides();
-        writeFile(allCheckins, "data/checkins.json", "Checkin History");
+        writeFile(allCheckins, dataFolderName + "/checkins.json", "Checkin History");
       }
     });
   }).end();
@@ -81,11 +82,15 @@ var fetchCategories = function(callback) {
 
     response.on("end", function() {
       console.log("Done fetching categories")
-      writeFile(JSON.parse(str).response.categories, "data/categories.json", "Category List", function() {
+      writeFile(JSON.parse(str).response.categories, dataFolderName + "/categories.json", "Category List", function() {
         callback.call();
       });
     });
   }).end();
+}
+
+if (!fs.existsSync("./" + dataFolderName)) {
+  fs.mkdirSync("./" + dataFolderName);
 }
 
 writeHeader("Categories");
